@@ -15,7 +15,7 @@ Dotenv.config()
 
 //esmodule fix
 
-const __filename = path.fileURLToPath(import.meta.url)
+const __filename = fileURLToPath(import.meta.url)
 const __dirname = path.dirname(__filename)
 //middleware
 app.use(morgan('dev'))
