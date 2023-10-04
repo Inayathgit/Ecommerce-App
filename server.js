@@ -22,10 +22,7 @@ connecttoDB()
 
 
 
-// rest api
-app.use('*',function(req,res){
-    res.sendFile(path.join(__dirname,'./client/build/index.html'))
-})
+
 
 
 app.use('/api/v1/auth', authroutes)
@@ -35,7 +32,10 @@ app.use('/api/v1/product',productroutes)
 //port
 const PORT = process.env.PORT || 8080
 
-
+// rest api
+app.use('*',function(req,res){
+    res.sendFile(path.join(__dirname,'./client/build/index.html'))
+})
 
 
 //app running
