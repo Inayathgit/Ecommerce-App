@@ -6,6 +6,7 @@ import authroutes from './routes/authroutes.js'
 import categoryroute from './routes/categoryroute.js'
 import productroutes from './routes/productroutes.js'
 import path  from 'path'
+import { fileURLToPath } from 'url'
 //rest object
 const app = express()
 //dotenv config
@@ -21,7 +22,10 @@ app.use(express.static(path.join(__dirname,'./client/build')))
 connecttoDB()
 
 
+//esmodule fix
 
+const __dirname = path.FileURLToPath(import.meta.url)
+const __filename = path.dirname(__dirname)
 
 
 
