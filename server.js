@@ -12,6 +12,11 @@ const app = express()
 //dotenv config
 Dotenv.config()
 
+
+//esmodule fix
+
+const __dirname = path.FileURLToPath(import.meta.url)
+const __filename = path.dirname(__dirname)
 //middleware
 app.use(morgan('dev'))
 app.use(express.json())
@@ -22,10 +27,7 @@ app.use(express.static(path.join(__dirname,'./client/build')))
 connecttoDB()
 
 
-//esmodule fix
 
-const __dirname = path.FileURLToPath(import.meta.url)
-const __filename = path.dirname(__dirname)
 
 
 
