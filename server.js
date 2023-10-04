@@ -5,7 +5,7 @@ import connecttoDB from './config/db.js'
 import authroutes from './routes/authroutes.js'
 import categoryroute from './routes/categoryroute.js'
 import productroutes from './routes/productroutes.js'
-// import path  from 'path'
+import path  from 'path'
 //rest object
 const app = express()
 //dotenv config
@@ -14,7 +14,7 @@ Dotenv.config()
 //middleware
 app.use(morgan('dev'))
 app.use(express.json())
-// app.use(express.static(path.join(__dirname,'./client/build')))
+app.use(express.static(path.join(__dirname,'./client/build')))
 
 //connect to DB
 
@@ -23,9 +23,9 @@ connecttoDB()
 
 
 // rest api
-// app.use('*',function(req,res){
-//     res.sendFile(path.join(__dirname,'./client/build/index.html'))
-// })
+app.use('*',function(req,res){
+    res.sendFile(path.join(__dirname,'./client/build/index.html'))
+})
 
 
 app.use('/api/v1/auth', authroutes)
